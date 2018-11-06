@@ -1,8 +1,28 @@
-%lab 1
-help conv2 %should give you commands for conv2(I,H,Shape) I = image as matrix h = mask as matrix, shape = size + output
-help fspecial % fspecial will generate masks commonly used in image processing 
+Ir = imread('rooster.jpg');
+Ir = rgb2gray(Ir);
+Ir = im2double(Ir);
+Iw = imread('woods.png');
+Iw = im2double(Iw);
 
-%import rooster.jpg and boxes.pgm
-%convert to greyscale: colormap('gray');
-%convert to double data type: im2double();
-%use fspecial on both to create masks
+Iwp1 = Iw(2:60,:); %this should be one pixel shift image piece
+Iwp = Iw(1:59,:); %image fragment
+whos
+f=corr2(Iwp, Iwp1);
+disp(f);
+
+%write a function in matlab
+function c = corr130(img, s)
+    I = img(1:60,:);
+    Is = img((1+s):(60+s),:);
+    c = corr2(I,Is);
+end
+
+
+x = 0:30;
+y = [];
+counter = 0;
+while counter< 
+    
+end
+
+scatter(x,y);
