@@ -114,9 +114,9 @@ subplot(2,2,4), imagesc(Yb1);
 
 Ie = imread('elephant.png');
 Ie = im2double(Ie);
-Ie = rgb2gray(Ie);
+Ie = mat2gray(Ie);
 
-
+gab = gabor(4,8,90,0.5,0);
 Igab = conv2(Ie, gab, 'valid');
 
 gab90 = gabor(4,8,90,0.5,90);
